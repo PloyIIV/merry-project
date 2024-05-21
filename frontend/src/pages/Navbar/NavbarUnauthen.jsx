@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 const NavbarUnauthen = () => {
     const navigate = useNavigate();
   return (
-    <div className='flex justify-around h-20 items-center'>
+    <div className='flex justify-around h-20 items-center shadow-xl'>
         <Logo />
         <div>
             <button className='font-bold text-ppurple-800'><a href='#why-merry'>Why Merry Match?</a></button>
