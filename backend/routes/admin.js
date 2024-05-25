@@ -4,6 +4,12 @@ import jwt from 'jsonwebtoken'
 
 const adminRouter = express.Router();
 
+adminRouter.get('/test', async (req, res) => {
+    return res.json({
+        message: "API is working"
+    })
+})
+
 adminRouter.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const lowerCaseEmail = email.toLowerCase();
