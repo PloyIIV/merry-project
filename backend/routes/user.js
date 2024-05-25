@@ -3,6 +3,22 @@ import { supabase } from "../config/db.js";
 
 const userRouter = express.Router();
 
+userRouter.get('/log', async (req, res) => {
+    try {
+        const { data, error } = await supabase.from('users').select();
+        if (error) {
+            return res.json({
+                message: error
+            })
+        }
+        return res.json({
+            data: data
+        })
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 userRouter.post('/login', async (req, res) => {
     const { username, password } = req.body
 })
