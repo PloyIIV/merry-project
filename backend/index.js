@@ -1,6 +1,8 @@
 import bodyParser from "body-parser";
 import express from "express";
 import cors from "cors";
+import adminRouter from "./routes/admin.js";
+import userRouter from "./routes/user.js";
 
 async function init() {
   const app = express();
@@ -10,6 +12,10 @@ async function init() {
   app.use(bodyParser.json());
   // app.use(express.json());
   // app.use(express.urlencoded({ extended: true }));
+
+  // Endpoint
+  app.use('/admin', adminRouter);
+  app.use('/user', userRouter);
 
   app.get("/", (req, res) => {
     res.send("API is working");
