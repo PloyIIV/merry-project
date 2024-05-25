@@ -8,7 +8,13 @@ async function init() {
   const app = express();
   const port = 4000;
 
-  app.use(cors());
+  const corsConfig = {
+    origin: "*",
+    credential: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"]
+  }
+  app.options("", cors(corsConfig));
+  app.use(cors(corsConfig));
   app.use(bodyParser.json());
   // app.use(express.json());
   // app.use(express.urlencoded({ extended: true }));
