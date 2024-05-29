@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import boy from '../../../public/boy-complaint-form-page.png'
+import axios from 'axios'
+import { useAuth } from '../../contexts/authenContext'
+import { toast } from 'react-toastify'
 
 const Login = () => {
+    const { login, url, loading } = useAuth();
     const navigate = useNavigate();
     const [data, setData] = useState({
         username: "",
@@ -15,9 +19,20 @@ const Login = () => {
         setData((data) => ({...data, [name]: value}))
     }
 
-    const onSubmitHandler = (event) => {
+    const onSubmitHandler = async (event) => {
         event.preventDefault();
+        const res = await login(data)
+        if(res.message) {
+            toast.error(res.message)
+        }
+        if(res.id) {
+            toast("Welcome back")
+        }
     }
+
+    useEffect(() => {
+
+    }, [loading])
 
   return (
     <div className='min-w-full h-[90vh] flex justify-center'>
@@ -33,7 +48,7 @@ const Login = () => {
                         <h1>Merry Match</h1>
                     </div>
                 </div>
-                <form onSubmit={onSubmitHandler}>
+                {!loading ? <form onSubmit={onSubmitHandler}>
                     <div className='mt-6'>
                         <p>Username or Email</p>
                         <input onChange={onChangeHandler} value={data.username} name='username' type="text" className='rounded-lg border border-pgray-400 w-full h-10 pl-3 mt-1' placeholder='Enter Username or Email' required />
@@ -47,7 +62,8 @@ const Login = () => {
                         <p>Don't have an account?</p>
                         <button onClick={() => navigate('/register')} className='text-pred-500 font-bold px-2'>Register</button>
                     </div>
-                </form>
+                </form> 
+                : <p>Loading</p>}
             </div>
         </div>
     </div>

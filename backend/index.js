@@ -16,7 +16,7 @@ async function init() {
   app.options("", cors(corsConfig));
   app.use(cors(corsConfig));
   app.use(bodyParser.json());
-  // app.use(express.json());
+  app.use(express.json());
   // app.use(express.urlencoded({ extended: true }));
 
   // Endpoint

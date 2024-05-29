@@ -1,11 +1,12 @@
 import express from "express";
 import { supabase } from "../config/db.js";
 import jwt from 'jsonwebtoken'
+import { protect } from "../middlewares/protect.js";
 
 const userRouter = express.Router();
 
 // TEST API
-userRouter.get('/log', async (req, res) => {
+userRouter.get('/log', protect, async (req, res) => {
     try {
         const { data, error } = await supabase.from('users').select();
         if (error) {
@@ -22,6 +23,7 @@ userRouter.get('/log', async (req, res) => {
 })
 
 userRouter.post('/login', async (req, res) => {
+    console.log(req.body)
     const { password, username } = req.body;
     let lowerCaseEmail;
     if (req.body.email) {
@@ -35,13 +37,14 @@ userRouter.post('/login', async (req, res) => {
             })
         }
         if (!data[0]) {
-            return res.status(404).json({
+            return res.json({
                 message: `This email is not exists, Please sign up first.`
             })
         }
         if (password !== data[0].password) {
             return res.json({
-                message: `Incorrect password. If you can't remember, Please reset password.`
+                status: 404,
+                message: `Incorrect password. If you can't remember, Please reset your password.`
             })
         }
         const token = jwt.sign(
