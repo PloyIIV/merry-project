@@ -1,0 +1,52 @@
+.calHeight {
+  height: calc(100vh - 80px);
+}
+
+.swiper-button-next {
+    --swiper-navigation-color: white;
+    --swiper-navigation-size: 20px;
+    --swiper-navigation-top-offset: 91%;
+    --swiper-navigation-sides-offset: 9%;
+}
+.swiper-button-prev {
+    --swiper-navigation-color: white;
+    --swiper-navigation-size: 20px;
+    --swiper-navigation-top-offset: 91%;
+    --swiper-navigation-sides-offset: 87%;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cecece;
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, #474bff);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  animation: spinner-zp9dbg 1s infinite linear;
+}
+
+@keyframes spinner-zp9dbg {
+  to {
+    transform: rotate(1turn);
+  }
+}

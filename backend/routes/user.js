@@ -22,6 +22,25 @@ userRouter.get('/log', protect, async (req, res) => {
     }
 })
 
+userRouter.get('/:id', protect, async (req, res) => {
+    try {
+        const { data, error } = await supabase.from('users').select('*').eq('id', req.params.id);
+        if (error) {
+            return res.json({
+                message: error
+            })
+        }
+        return res.json({
+            data: data[0]
+        })
+    } catch (error) {
+        console.log(error);
+        res.json({
+            message: `ERROR: There's something wrong, Can't login right now. ${error}`
+        })
+    }
+})
+
 userRouter.post('/login', async (req, res) => {
     console.log(req.body)
     const { password, username } = req.body;

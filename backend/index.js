@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import adminRouter from "./routes/admin.js";
 import userRouter from "./routes/user.js";
+import { protect } from "./middlewares/protect.js";
 
 async function init() {
   const app = express();
@@ -20,7 +21,7 @@ async function init() {
   // app.use(express.urlencoded({ extended: true }));
 
   // Endpoint
-  app.use('/admin', adminRouter);
+  app.use('/admin', protect, adminRouter);
   app.use('/user', userRouter);
 
   app.get("/", (req, res) => {

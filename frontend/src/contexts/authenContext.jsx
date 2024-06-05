@@ -33,8 +33,10 @@ function AuthProvider(props) {
         setState(null)
     }
 
+    const isAuthenticated = Boolean(localStorage.getItem("token"));
+
     return (
-        <AuthContext.Provider value={{ loading, login, url, logout, state }}>
+        <AuthContext.Provider value={{ loading, login, url, logout, state, isAuthenticated }}>
             {props.children}
         </AuthContext.Provider>
     )

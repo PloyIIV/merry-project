@@ -5,10 +5,12 @@ import Login from '../Login/Login'
 import Register from '../Register/Register'
 import NavbarUnauthen from '../Navbar/NavbarUnauthen'
 import Test from '../Test'
+import { ToastContainer, toast } from 'react-toastify';
 
 const UnauthenApp = () => {
   return (
     <>
+        <ToastContainer />
         <NavbarUnauthen />
         <Routes>
             <Route path='/' element={<Home />} />

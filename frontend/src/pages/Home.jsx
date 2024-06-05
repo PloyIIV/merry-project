@@ -1,7 +1,9 @@
 import React from "react";
 import Button from "../components/ui/Button";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const  navigate = useNavigate();
   return (
     <div className="bg-putility-400 min-h-dvh">
       <div className="w-96 text-center text-white">
@@ -11,7 +13,7 @@ const Home = () => {
             <p>new people in your area!</p>
             <p>Dont’t forget to get Merry with us</p>
         </div>
-        <button className='bg-pred-500 text-white font-bold rounded-full w-24 h-12'>Start matching!</button>
+        <button onClick={() => navigate('/matching')} className='bg-pred-500 text-white font-bold rounded-full w-24 h-12'>Start matching!</button>
       </div>
       <div id="why-merry"></div>
       <div id="how-to"></div>

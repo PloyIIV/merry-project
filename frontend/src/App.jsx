@@ -1,20 +1,11 @@
-import { useState } from 'react'
-import Home from './pages/Home'
-import Navbar from './pages/Navbar/Navbar'
-import NavbarUnauthen from './pages/Navbar/NavbarUnauthen'
 import UnauthenApp from './pages/Unauthenticated/UnauthenApp'
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAuth } from './contexts/authenContext'
+import AuthenticatedApp from './AuthenticatedApp'
 
 function App() {
-  // const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <UnauthenApp />
-      <ToastContainer />
-    </>
-  )
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? <AuthenticatedApp /> : <UnauthenApp />
 }
 
 export default App
