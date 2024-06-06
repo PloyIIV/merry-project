@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../Matching/Matching.css";
+import { useAuth } from "../../contexts/authenContext";
 
 const svgSearchLogo = (
   <svg
@@ -24,11 +25,12 @@ const svgSearchLogo = (
 );
 
 const ChatSidebar = () => {
+  const { url } = useAuth();
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(null);
   const fetchUsers = async () => {
     setIsLoading(true);
-    const response = await axios.get("http://localhost:4000/user/log");
+    const response = await axios.get(`${url}/user/log`);
     setUsers(response.data.data);
     setIsLoading(false);
     console.log(response);
@@ -78,9 +80,8 @@ const ChatSidebar = () => {
             {users.map((user, index) => {
               if (user.image) {
                 return (
-                  <div className="flex items-center mt-3">
+                  <div key={index} className="flex items-center mt-3">
                     <img
-                      key={index}
                       className="w-16 rounded-full"
                       src={user.image[0]}
                       alt={user.username}

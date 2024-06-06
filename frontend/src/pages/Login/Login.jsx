@@ -26,7 +26,7 @@ const Login = () => {
             toast.error(res.message)
         }
         if(res.id) {
-            toast("Welcome back")
+            navigate('/')
         }
     }
 

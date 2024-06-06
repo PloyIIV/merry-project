@@ -13,6 +13,7 @@ const AuthenticatedApp = () => {
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/matching' element={<Matching />} />
+            <Route path='/login' element={<Login />} />
             <Route path='/:userId' element={<PopupPreview />} />
             <Route path='*' element={<Home />} />
         </Routes>

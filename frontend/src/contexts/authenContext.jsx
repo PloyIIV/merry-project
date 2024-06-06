@@ -5,10 +5,19 @@ import { jwtDecode } from 'jwt-decode'
 
 const AuthContext = React.createContext();
 
+const getState = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+        localStorage.setItem("token", token)
+        const UserDataFromToken = jwtDecode(token)
+        return UserDataFromToken
+    }
+}
+
 function AuthProvider(props) {
     const url = 'http://localhost:4000'
     const [loading, setLoading] = useState(false)
-    const [state, setState] = useState(null)
+    const [state, setState] = useState(getState())
     const navigate = useNavigate();
 
     // make a login request
@@ -18,10 +27,8 @@ function AuthProvider(props) {
         const token = response.data.token
         if (token) {
             localStorage.setItem("token", token)
-            const UserDataFromToken = jwtDecode(token)
+            setState(getState())
             setLoading(false)
-            setState(UserDataFromToken)
-            return UserDataFromToken
         } else {
             setLoading(false)
             return response.data

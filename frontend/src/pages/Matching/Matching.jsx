@@ -302,7 +302,7 @@ const Matching = () => {
 
   return (
     <div className="flex calHeight">
-      {clicked && (
+      {clicked ? (
         <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-20">
           <PopupPreview
             setClicked={setClicked}
@@ -310,7 +310,7 @@ const Matching = () => {
             userId={users.id}
           />
         </div>
-      )}
+      ): <></>}
       <div className="w-[20%]">
         <ChatSidebar />
       </div>
@@ -360,7 +360,7 @@ const Matching = () => {
               {!loading && users.image ? (
                 users.image.map((img, index) => {
                   return (
-                    <SwiperSlide key={index} className="w-[700px] h-[700px]">
+                    <SwiperSlide key={index} className="w-[250px] lg:w-[700px] lg:h-[700px]">
                       <div className="absolute bottom-0 rounded-3xl w-full h-full bg-gradient-to-t from-[#411032] from-0% to-40% to-transparent"></div>
                       <img className="rounded-3xl" src={img} alt={img} />
                     </SwiperSlide>

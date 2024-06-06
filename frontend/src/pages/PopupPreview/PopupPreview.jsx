@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { merryButton, closeButton } from "../Matching/Matching";
 import "../../index.css";
+import { useAuth } from "../../contexts/authenContext";
 
 const locationSvg = (
   <svg
@@ -21,13 +22,14 @@ const locationSvg = (
 );
 
 const PopupPreview = ({ clicked, setClicked, userId }) => {
+  const { url } = useAuth();
   const [isLoading, setIsLoading] = useState(null);
   const [count, setCount] = useState(0);
   const [user, setUser] = useState({});
 
   const fetchUser = async () => {
     setIsLoading(true);
-    const response = await axios.get(`http://localhost:4000/user/${userId}`);
+    const response = await axios.get(`${url}/user/${userId}`);
     setUser(response.data.data);
     setIsLoading(false);
   };
