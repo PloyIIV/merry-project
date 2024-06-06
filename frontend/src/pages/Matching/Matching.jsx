@@ -316,7 +316,7 @@ const Matching = () => {
       </div>
       <div className="w-full bg-pred-800 flex items-center">
         {users ? (
-          <div className="w-full relative grid place-items-center">
+          <div className="select-none w-full relative grid place-items-center">
             <div className="text-white flex items-center absolute bottom-12 z-10 left-[30%]">
               <h3 className="mr-2 font-bold text-xl first-letter:uppercase">
                 {users.username}
@@ -361,7 +361,7 @@ const Matching = () => {
                 users.image.map((img, index) => {
                   return (
                     <SwiperSlide key={index} className="w-[250px] lg:w-[700px] lg:h-[700px]">
-                      <div className="absolute bottom-0 rounded-3xl w-full h-full bg-gradient-to-t from-[#411032] from-0% to-40% to-transparent"></div>
+                      <div className="absolute bottom-0 rounded-3xl w-full h-full bg-gradient-to-t from-ppurple-800/100 from-0% to-60% to-transparent"></div>
                       <img className="rounded-3xl" src={img} alt={img} />
                     </SwiperSlide>
                   );

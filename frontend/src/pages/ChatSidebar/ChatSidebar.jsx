@@ -40,7 +40,7 @@ const ChatSidebar = () => {
   }, []);
   return (
     <div>
-      <div className="flex flex-col items-center text-center border border-pred-600 rounded-lg mx-3 my-5 px-2 py-5 bg-pgray-200">
+      <div className="hidden lg:flex flex-col items-center text-center border border-pred-600 rounded-lg mx-3 my-5 px-2 py-5 bg-pgray-200">
         {svgSearchLogo}
         <h6 className="font-extrabold text-pred-600 text-lg">
           Discover New Match
@@ -50,7 +50,7 @@ const ChatSidebar = () => {
         </p>
       </div>
       <hr />
-      <div className="m-3">
+      <div className="m-3 select-none">
         <h6 className="font-bold text-xl">Merry Match!</h6>
         <div>
           {!isLoading ? (
@@ -60,9 +60,10 @@ const ChatSidebar = () => {
                   return (
                     <img
                       key={index}
-                      className="w-20 rounded-3xl mr-3"
+                      className="w-20 rounded-3xl mr-3 cursor-pointer"
                       src={user.image[0]}
                       alt={user.username}
+                      onClick={() => console.log(user)}
                     />
                   );
                 }
@@ -80,7 +81,7 @@ const ChatSidebar = () => {
             {users.map((user, index) => {
               if (user.image) {
                 return (
-                  <div key={index} className="flex items-center mt-3">
+                  <div key={index} className="flex items-center mt-3 hover:bg-pgray-100 border border-transparent hover:border-ppurple-700/50 hover:rounded-xl px-2 py-3">
                     <img
                       className="w-16 rounded-full"
                       src={user.image[0]}
@@ -88,7 +89,7 @@ const ChatSidebar = () => {
                     />
                     <div className="ml-2">
                       <h6 className="font-semibold first-letter:uppercase">{user.username}</h6>
-                      <p className="text-sm">Content</p>
+                      <p className="text-sm text-pgray-700">Content</p>
                     </div>
                   </div>
                 );

@@ -43,7 +43,7 @@ const Login = () => {
             <div className='w-1/3'>
                 <div>
                     <h6 className='text-pbeige-700 font-semibold'>LOGIN</h6>
-                    <div  className='text-ppurple-500 font-extrabold text-5xl mt-3'>
+                    <div  className='text-ppurple-500 font-extrabold text-2xl xl:text-5xl mt-3'>
                         <h1>Welcome back to</h1>
                         <h1>Merry Match</h1>
                     </div>
