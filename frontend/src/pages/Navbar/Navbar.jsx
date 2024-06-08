@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Logo from "../../components/ui/Logo";
 import axios from "axios";
 import { useAuth } from "../../contexts/authenContext";
+import { useNavigate } from "react-router-dom";
 
 const icon1 = (
   <svg
@@ -119,6 +120,7 @@ const notiButton = (
 );
 const Navbar = () => {
   const { state, logout, url } = useAuth();
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(null);
   const [clicked, setClicked] = useState(false);
   const [user, setUser] = useState("");
@@ -174,8 +176,8 @@ const Navbar = () => {
       <Logo />
       <div className="flex items-center">
         <div>
-          <button className="font-bold text-putility-600">
-            <a href="/matching">Start Matching!</a>
+          <button onClick={() => navigate('/matching')} className="font-bold text-putility-600">
+            Start Matching!
           </button>
           <button className="font-bold text-putility-600 px-8">
             <a href="#how-to">Merry Membership</a>

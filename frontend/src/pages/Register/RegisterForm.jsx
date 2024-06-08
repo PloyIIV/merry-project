@@ -48,7 +48,7 @@ export const StepOne = () => {
             </div>
             <div className='ml-5 mb-5'>
                 <p>Confirm password</p>
-                <input className='border w-full rounded-xl py-2 px-3' onChange={(event) => setConfirmPassword(event.target.value)} value={confirmPassword} type="password" name='confirmPassword' id='confirmPassword' placeholder='At least 8 charactors' />
+                <input className='border w-full rounded-xl py-2 px-3' onChange={onChangeHandler} value={data.confirmPassword} type="password" name='confirmPassword' id='confirmPassword' placeholder='At least 8 charactors' />
             </div>
         </div>
     </div>
@@ -56,8 +56,7 @@ export const StepOne = () => {
 }
 
 export const StepTwo = () => {
-    const { data, setData } = useRegister();
-    const [tags, setTags] = useState([])
+    const { data, setData, tags, setTags } = useRegister();
     const [inputValue, setInputValue] = useState("")
 
     const onChangeHandler = (event) => {
@@ -82,25 +81,51 @@ export const StepTwo = () => {
         setTags(newArray)
     }
 
+    const sexOptions = (
+        <>
+            <option className='hidden' value="">Select...</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </>
+    )
+
   return (
     <div>
         <h1 className='mb-3 text-xl text-ppurple-500 font-bold'>Identities and Interests</h1>
         <div className='bg-purple-300/0 grid grid-cols-2'>
             <div className='mr-5 mb-5'>
                 <p>Sexual Identities</p>
-                <input className='border w-full rounded-xl py-2 px-3' onChange={onChangeHandler} value={data.name} type="text" name='name' id='name' placeholder='John Snow' />
+                    <select className={`w-full border rounded-xl p-2`} value={data.sexIdentities} onChange={onChangeHandler} name="sexIdentities" id="sexIdentities">
+                        {sexOptions} 
+                    </select>
             </div>
             <div className='ml-5 mb-5'>
                 <p>Sexual Preferences</p>
-                <input className='border w-full rounded-xl py-2 px-3' onChange={onChangeHandler} value={data.dateOfBirth} type="date" name='dateOfBirth' id='dateOfBirth' />
+                
+                    <select  className={`w-full border rounded-xl p-2`} value={data.sexPreferences} onChange={(event) =>  setData({sexPreferences: event.target.value}) } name="sexPreferences" id="sexPreferences">
+                        {sexOptions}
+                    </select>
             </div>
             <div className='mr-5 mb-5'>
                 <p>Racial Preferences</p>
-                <input className='border w-full rounded-xl py-2 px-3' onChange={onChangeHandler} value={data.location} type="text" name='location' id='location' placeholder='Thailand' />
+                
+                    <select required className={`w-full border rounded-xl p-2`} value={data.racialPreferences} onChange={(event) =>  setData({racialPreferences: event.target.value}) } name="racialPreferences" id="racialPreferences">
+                        <option value="asian">Asian</option>
+                        <option value="europe">Europe</option>
+                        <option value="africa">Africa</option>
+                        <option value="america">America</option>
+                        <option value="other">Other</option>
+                    </select>
             </div>
             <div className='ml-5 mb-5'>
                 <p>Meeting Interests</p>
-                <input className='border w-full rounded-xl py-2 px-3' onChange={onChangeHandler} value={data.city} type="text" name='city' id='city' placeholder='Bangkok' />
+                
+                    <select  className={`w-full border rounded-xl p-2`} value={data.meetingInterests} onChange={(event) =>  setData({meetingInterests: event.target.value}) } name="meetingInterests" id="meetingInterests">
+                        <option value="friend">Friend</option>
+                        <option value="boyfriend">Boyfriend / Girlfriend</option>
+                        <option value="casual">Casual</option>
+                        <option value="other">Other</option>
+                    </select>
             </div>
         </div>
         <div className=''>
@@ -114,7 +139,7 @@ export const StepTwo = () => {
                         </div>
                     )
                 })}
-                <input className='flex-1 border-none outline-none p-1' onKeyUp={addTag} onChange={(e) => setInputValue(e.target.value)} value={inputValue} type="text" name='city' id='city' placeholder='Bangkok' />
+                <input className='flex-1 border-none outline-none p-1' onKeyUp={addTag} onChange={(e) => setInputValue(e.target.value)} value={inputValue} type="text" name='tags' id='tags' placeholder='Series' />
             </div>
         </div>
     </div>

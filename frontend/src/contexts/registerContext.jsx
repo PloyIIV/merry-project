@@ -10,10 +10,16 @@ function RegisterProvider(props) {
         city: "",
         username: "",
         email: "",
-        password: ""
+        password: "",
+        confirmPassword: "",
+        sexIdentities: "",
+        sexPreferences: "",
+        racialPreferences: "",
+        meetingInterests: ""
     })
+    const [tags, setTags] = useState([])
     return (
-        <RegisterContext.Provider value={{ data, setData }}>{props.children}</RegisterContext.Provider>
+        <RegisterContext.Provider value={{ data, setData, tags, setTags }}>{props.children}</RegisterContext.Provider>
     )
 }
 
