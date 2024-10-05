@@ -55,7 +55,7 @@ const ChatSidebar = () => {
         <div>
           {!isLoading ? (
             <div className="flex mt-1 pb-2 overflow-auto">
-              {users.map((user, index) => {
+              {/* {users.map((user, index) => {
                 if (user.image) {
                   return (
                     <img
@@ -67,7 +67,7 @@ const ChatSidebar = () => {
                     />
                   );
                 }
-              })}
+              })} */}
             </div>
           ) : (
             <>Loading</>
