@@ -15,13 +15,15 @@ const getState = () => {
 }
 
 function AuthProvider(props) {
-    const url = "https://merry-project.vercel.app"//'http://localhost:4000'
+    const url = "https://merry-project.vercel.app"
+    // const url = "http://localhost:4000"
     const [loading, setLoading] = useState(false)
     const [state, setState] = useState(getState())
     const navigate = useNavigate();
 
     // make a login request
     const login = async (data) => {
+        console.log(data)
         setLoading(true)
         const response = await axios.post(`${url}/user/login`, data);
         const token = response.data.token

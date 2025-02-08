@@ -45,8 +45,9 @@ userRouter.post('/login', async (req, res) => {
     console.log(req.body)
     const { password, username } = req.body;
     let lowerCaseEmail;
-    if (req.body.email) {
-        lowerCaseEmail = req.body.email.toLowerCase();
+    if (req.body.username.includes('@')) {
+        lowerCaseEmail = req.body.username.toLowerCase();
+        console.log(lowerCaseEmail)
     }
     try {
         const { data, error } = await supabase.from('users').select('*').or(`email.eq.${lowerCaseEmail}, username.eq.${username}`);
