@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 const NavbarUnauthen = () => {
     const navigate = useNavigate();
     // const url = 'http://localhost:5173'
-    const url = 'https://merry-project.vercel.app'
+    const url = 'https://merry-project-frontend.vercel.app'
   return (
     <div className='flex justify-around h-20 items-center shadow-xl relative z-10'>
         <Logo />
