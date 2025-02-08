@@ -57,9 +57,11 @@ const Register = () => {
     }
   };
 
+    // const url = 'http://localhost:5173'
+    const url = 'https://merry-project.vercel.app'
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const result = await axios.post("http://localhost:4000/user/register", data)
+    const result = await axios.post(`${url}/user/register`, data)
     console.log(result)
     navigate("/login")
   }
