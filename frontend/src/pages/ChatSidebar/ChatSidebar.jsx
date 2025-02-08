@@ -39,7 +39,7 @@ const ChatSidebar = () => {
     fetchUsers();
   }, []);
   return (
-    <div>
+    <div className="overflow-auto h-full">
       <div className="hidden lg:flex flex-col items-center text-center border border-pred-600 rounded-lg mx-3 my-5 px-2 py-5 bg-pgray-200">
         {svgSearchLogo}
         <h6 className="font-extrabold text-pred-600 text-lg">
