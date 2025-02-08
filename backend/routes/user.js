@@ -50,7 +50,7 @@ userRouter.post('/login', async (req, res) => {
         console.log(lowerCaseEmail)
     }
     try {
-        const { data, error } = await supabase.from('users').select('*').or(`email.eq.${lowerCaseEmail}, username.eq.${username}`);
+        const { data, error } = await supabase.from('users').select('*').or(`email.eq.${lowerCaseEmail}, username.eq.${username.toLowerCase()}`);
         if (error) {
             return res.json({
                 message: error

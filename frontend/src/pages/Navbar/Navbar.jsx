@@ -137,29 +137,29 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="flex justify-around h-20 items-center shadow-md">
+    <div className="flex justify-around h-20 items-center shadow-md relative z-10">
       {clicked ? (
-        <div className="z-50 flex flex-col w-[200px] h-[250px] p-3 bg-white rounded-xl shadow-lg shadow-gray-400 absolute right-5 top-5">
-          <button className="flex items-center justify-center text-sm text-white rounded-full py-2 px-4 bg-gradient-to-r from-pred-700 to-ppurple-300">
+        <div className="z-50 flex flex-col w-[200px] h-[250px] p-3 bg-white rounded-xl shadow-lg shadow-gray-400 absolute right-[14%] top-[7%]">
+          <button className="flex items-center justify-center text-sm text-white rounded-full py-2 px-4 mb-2 bg-gradient-to-r from-pred-700 to-ppurple-300">
             {star}More limit Merry!
           </button>
           <div className="text-sm">
-            <div className="flex mt-4">
+            <div className="flex py-2 hover:bg-pred-200">
               <div className="ml-2">{icon1}</div>
               <p className="ml-3">Profile</p>
             </div>
             
-            <div className="flex mt-4">
+            <div className="flex py-2 hover:bg-pred-200">
               <div className="ml-2">{icon2}</div>
               <p className="ml-3">Merry list</p>
             </div>
             
-            <div className="flex mt-4">
+            <div className="flex py-2 hover:bg-pred-200">
               <div className="ml-2">{icon3}</div>
               <p className="ml-3">Merry Membership</p>
             </div>
             
-            <div className="flex mt-4">
+            <div className="flex py-2 hover:bg-pred-200">
               <div className="ml-2">{icon4}</div>
               <p className="ml-3">Complaint</p>
             </div>

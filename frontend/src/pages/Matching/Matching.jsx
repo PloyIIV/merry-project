@@ -362,7 +362,7 @@ const Matching = () => {
                   return (
                     <SwiperSlide key={index} className="w-[250px] lg:w-[700px] lg:h-[700px]">
                       <div className="absolute bottom-0 rounded-3xl w-full h-full bg-gradient-to-t from-ppurple-800/100 from-0% to-60% to-transparent"></div>
-                      {/* <img className="rounded-3xl" src={img} alt={img} /> */}
+                      <img className="rounded-3xl" src={img} alt={img} />
                     </SwiperSlide>
                   );
                 })
