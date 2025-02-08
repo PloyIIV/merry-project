@@ -36,14 +36,14 @@ const Login = () => {
 
   return (
     <div className="min-w-full h-[90vh] bg-white flex justify-center">
-      <div className="w-4/5 flex justify-evenly items-center">
-        <div className="md:w-1/4 xl:w-fit">
+      <div className="w-4/5 flex justify-evenly items-center h-dvh xl:h-full">
+        <div className="md:w-1/4 xl:w-1/3">
           <img src={boy} alt="boy" />
         </div>
         <div className="w-1/3">
           <div>
             <h6 className="text-pbeige-700 font-semibold">LOGIN</h6>
-            <div className="text-ppurple-500 font-extrabold text-2xl xl:text-5xl mt-3">
+            <div className="text-ppurple-500 font-extrabold text-2xl md:text-4xl xl:text-5xl mt-3">
               <h1>Welcome back to</h1>
               <h1>Merry Match</h1>
             </div>
