@@ -39,7 +39,7 @@ const ChatSidebar = () => {
     fetchUsers();
   }, []);
   return (
-    <div className="overflow-auto h-full">
+    <div className="overflow-y-auto h-full">
       <div className="hidden lg:flex flex-col items-center text-center border border-pred-600 rounded-lg mx-3 my-5 px-2 py-5 bg-pgray-200">
         {svgSearchLogo}
         <h6 className="font-extrabold text-pred-600 text-lg">
@@ -54,24 +54,24 @@ const ChatSidebar = () => {
         <h6 className="font-bold text-xl">Merry Match!</h6>
         <div>
           {!isLoading ? (
-            <div className="flex mt-1 pb-2 overflow-auto">
+            <div className="w-full flex overflow-x-auto">
               {users.map((user, index) => {
                 if (user.image) {
                   return (
-                    <img
-                      key={index}
-                      className="w-20 rounded-3xl mr-3 cursor-pointer"
-                      src={user.image[0]}
-                      alt={user.username}
-                      onClick={() => console.log(user)}
-                    />
+                      <img
+                        key={index}
+                        className="w-20 h-20 object-cover rounded-3xl mr-3 cursor-pointer "
+                        src={user.image[0]}
+                        alt={user.username}
+                        onClick={() => console.log(user)}
+                      />
                   );
                 }
               })}
             </div>
           ) : (
             <div className="w-full h-full flex justify-center items-center">
-                    <div className="spinner"></div>
+              <div className="spinner"></div>
             </div>
           )}
         </div>
@@ -85,7 +85,7 @@ const ChatSidebar = () => {
                 return (
                   <div key={index} className="flex items-center mt-3 hover:bg-pgray-100 border border-transparent hover:border-ppurple-700/50 hover:rounded-xl px-2 py-3">
                     <img
-                      className="w-16 rounded-full"
+                      className="w-16 h-16 object-cover rounded-full"
                       src={user.image[0]}
                       alt={user.username}
                     />
@@ -100,8 +100,8 @@ const ChatSidebar = () => {
           </div>
         ) : (
           <div className="w-full h-full flex justify-center items-center">
-                    <div className="spinner"></div>
-                </div>
+            <div className="spinner"></div>
+          </div>
         )}
       </div>
     </div>
