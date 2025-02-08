@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { StepOne, StepTwo, StepThree } from "./RegisterForm";
 import { useRegister } from "../../contexts/registerContext";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [errorText, setErrorText] = useState("")
   const { data } = useRegister();
@@ -13,6 +16,7 @@ const Register = () => {
     }
   };
   const handleNext = () => {
+    console.log(data)
     let isValid = true;
     if (data.name.trim() == "") {
       setErrorText("● Please enter your name")
@@ -53,8 +57,11 @@ const Register = () => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
+    const result = await axios.post("http://localhost:4000/user/register", data)
+    console.log(result)
+    navigate("/login")
   }
 
   const renderStep = () => {

@@ -102,7 +102,7 @@ export const StepTwo = () => {
             <div className='ml-5 mb-5'>
                 <p>Sexual Preferences</p>
                 
-                    <select  className={`w-full border rounded-xl p-2`} value={data.sexPreferences} onChange={(event) =>  setData({sexPreferences: event.target.value}) } name="sexPreferences" id="sexPreferences">
+                    <select  className={`w-full border rounded-xl p-2`} value={data.sexPreferences} onChange={onChangeHandler} name="sexPreferences" id="sexPreferences">
                         {sexOptions}
                     </select>
             </div>
