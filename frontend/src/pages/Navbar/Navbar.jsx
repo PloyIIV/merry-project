@@ -139,33 +139,33 @@ const Navbar = () => {
   return (
     <div className="flex justify-around h-20 items-center shadow-md relative z-10">
       {clicked ? (
-        <div className="z-50 flex flex-col w-[200px] h-[250px] p-3 bg-white rounded-xl shadow-lg shadow-gray-400 absolute right-[14%] top-[7%]">
+        <div className="z-50 flex flex-col w-[200px] h-[260px] p-3 bg-white rounded-xl shadow-2xl border border-pgray-400 shadow-gray-600 absolute right-[14%] top-16">
           <button className="flex items-center justify-center text-sm text-white rounded-full py-2 px-4 mb-2 bg-gradient-to-r from-pred-700 to-ppurple-300">
             {star}More limit Merry!
           </button>
           <div className="text-sm">
-            <div className="flex py-2 hover:bg-pred-200">
+            <div className="flex py-2 hover:bg-pgray-200 hover:rounded-xl">
               <div className="ml-2">{icon1}</div>
               <p className="ml-3">Profile</p>
             </div>
             
-            <div className="flex py-2 hover:bg-pred-200">
+            <div className="flex py-2 hover:bg-pgray-200 hover:rounded-xl">
               <div className="ml-2">{icon2}</div>
               <p className="ml-3">Merry list</p>
             </div>
             
-            <div className="flex py-2 hover:bg-pred-200">
+            <div className="flex py-2 hover:bg-pgray-200 hover:rounded-xl">
               <div className="ml-2">{icon3}</div>
               <p className="ml-3">Merry Membership</p>
             </div>
             
-            <div className="flex py-2 hover:bg-pred-200">
+            <div className="flex py-2 hover:bg-pgray-200 hover:rounded-xl">
               <div className="ml-2">{icon4}</div>
               <p className="ml-3">Complaint</p>
             </div>
           </div>
           <hr className="mt-3" />
-          <div onClick={() => logout()} className="flex mt-3 items-center cursor-pointer">
+          <div onClick={() => logout()} className="flex py-2 mt-1 items-center cursor-pointer hover:bg-pgray-200 hover:rounded-xl">
               <div className="ml-2">{logoutIcon}</div>
               <p className="ml-3 text-sm">Logout</p>
             </div>

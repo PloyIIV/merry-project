@@ -13,13 +13,13 @@ const FilterSideBar = () => {
         </div>
         <br />
         <h6 className="font-bold text-md mb-3">Gender you interest</h6>
-        <div>
+        <div className="md:ml-2 lg:ml-4">
           <div className="flex items-center mb-2">
             <input
               type="checkbox"
               id="default"
               name="default"
-              className="appearance-none w-5 h-5 border border-pgray-400 rounded-md bg-white mr-1 relative peer shrink-0 checked:bg-ppurple-500"
+              className="appearance-none w-5 h-5 border border-pgray-400 rounded-md bg-white mr-2 relative peer shrink-0 checked:bg-ppurple-500"
             />
             <label htmlFor="default">Default</label>
             <svg
@@ -44,7 +44,7 @@ const FilterSideBar = () => {
               type="checkbox"
               id="female"
               name="female"
-              className="appearance-none w-5 h-5 border border-pgray-400 rounded-md bg-white mr-1 relative peer shrink-0 checked:bg-ppurple-500"
+              className="appearance-none w-5 h-5 border border-pgray-400 rounded-md bg-white mr-2 relative peer shrink-0 checked:bg-ppurple-500"
             />
             <label htmlFor="female">Female</label>
             <svg
@@ -69,7 +69,7 @@ const FilterSideBar = () => {
               type="checkbox"
               id="male"
               name="male"
-              className="appearance-none w-5 h-5 border border-pgray-400 rounded-md bg-white mr-1 relative peer shrink-0 checked:bg-ppurple-500"
+              className="appearance-none w-5 h-5 border border-pgray-400 rounded-md bg-white mr-2 relative peer shrink-0 checked:bg-ppurple-500"
             />
             <label htmlFor="male">Male</label>
             <svg
