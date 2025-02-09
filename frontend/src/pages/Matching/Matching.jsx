@@ -360,7 +360,7 @@ const Matching = () => {
               {!loading && users.image ? (
                 users.image.map((img, index) => {
                   return (
-                    <SwiperSlide key={index} className="w-[250px] md:w-[350px] lg:w-[500px] lg:h-[500px] xl:w-[700px] xl:h-[700px]">
+                    <SwiperSlide key={index} className="w-[250px] md:w-[350px] lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px] 2xl:w-[700px] 2xl:h-[700px]">
                       <div className="absolute bottom-0 rounded-3xl w-full h-full bg-gradient-to-t from-ppurple-800/100 from-0% to-60% to-transparent"></div>
                       <img className="rounded-3xl h-full w-full object-cover" src={img} alt={img} />
                     </SwiperSlide>
