@@ -55,11 +55,11 @@ const PopupPreview = ({ clicked, setClicked, userId }) => {
     <div className="border bg-white/95 rounded-3xl w-[1000px] h-[600px] flex p-10 shadow-xl shadow-gray-900">
       {!isLoading ? (
         <>
-          <div className="">
+          <div className="w-[400px] h-[400px]">
             {user.image ? (
               <img
                 src={user.image[count]}
-                className="w-[400px] rounded-3xl"
+                className="w-full h-full object-cover rounded-3xl"
                 alt="user profile"
               />
             ) : (

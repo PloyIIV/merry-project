@@ -81,7 +81,7 @@ const ChatSidebar = () => {
         {!isLoading ? (
           <div className="ml-2">
             {users.map((user, index) => {
-              if (user.image) {
+              if (user.image) { // && index < 3
                 return (
                   <div key={index} className="flex items-center mt-3 hover:bg-pgray-100 border border-transparent hover:border-ppurple-700/50 hover:rounded-xl px-2 py-3">
                     <img
