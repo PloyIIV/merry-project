@@ -5,7 +5,8 @@ import Logo from "../../components/ui/Logo";
 import { toast, ToastContainer } from "react-toastify";
 
 const Complaint = () => {
-  const url = "http://localhost:3000/post"
+  const url = 'https://merry-project.vercel.app/post'
+  // const url = "http://localhost:3000/post"
   const [issue, setIssue] = useState({
     title: "",
     date: "",

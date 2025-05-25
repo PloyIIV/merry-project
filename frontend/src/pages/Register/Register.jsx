@@ -57,8 +57,8 @@ const Register = () => {
     }
   };
 
-  const url = "http://localhost:3000";
-  // const url = 'https://merry-project.vercel.app'
+  // const url = "http://localhost:3000";
+  const url = 'https://merry-project.vercel.app'
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();

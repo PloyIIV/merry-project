@@ -15,8 +15,8 @@ const getState = () => {
 }
 
 function AuthProvider(props) {
-    // const url = "https://merry-project.vercel.app"
-    const url = "http://localhost:3000"
+    const url = "https://merry-project.vercel.app"
+    // const url = "http://localhost:3000"
     const [loading, setLoading] = useState(false)
     const [state, setState] = useState(getState())
     const navigate = useNavigate();

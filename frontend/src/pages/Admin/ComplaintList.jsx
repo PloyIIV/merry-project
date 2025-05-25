@@ -9,7 +9,8 @@ const ComplaintList = () => {
   const [complainList, setComplaintList] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [status, setStatus] = useState("all");
-  const url = "http://localhost:3000/post";
+  // const url = "http://localhost:3000/post";
+  const url = 'https://merry-project.vercel.app/post'
 
   function addZero(i) {
     if (i < 10) {

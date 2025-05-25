@@ -4,7 +4,8 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 const ComplaintDetail = () => {
-  const url = "http://localhost:3000/post/complaint";
+  // const url = "http://localhost:3000/post/complaint";
+  const url = "https://merry-project.vercel.app/post/complaint"
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const [complaint, setComplaint] = useState();
