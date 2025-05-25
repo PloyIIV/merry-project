@@ -9,10 +9,10 @@ import logo from "../../public/imgs/logo.png";
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <div className="bg-putility-400 min-h-dvh">
-      <div className="w-full relative flex justify-center items-center">
+    <div className="bg-putility-400 md:w-full">
+      <div className="w-full relative flex flex-col justify-center items-center">
         <img className="" src={bg1} alt="people" />
-        <div className="w-96 text-center text-white absolute">
+        <div className="w-96 text-center text-white lg:absolute">
           <h1 className="font-black text-6xl">Make the first ‘Merry’</h1>
           <div className="font-semibold text-xl mt-10 mb-14">
             <p>If you feel lonely, let’s start meeting</p>
@@ -30,10 +30,10 @@ const Home = () => {
 
       <div
         id="why-merry"
-        className="w-full h-[50vh] relative flex justify-center items-center"
+        className="w-full h-full relative flex justify-center items-center"
       >
-        <div className="flex justify-evenly items-center">
-          <div className="w-2/4 text-white">
+        <div className="flex flex-col-reverse lg:flex-row justify-evenly items-center">
+          <div className="lg:w-2/4 w-9/12 text-white mt-10 lg:mt-0 ml-0 md:ml-10">
             <h1 className="text-pred-300 font-black text-5xl">
               Why Merry Match?
             </h1>
@@ -54,7 +54,7 @@ const Home = () => {
               interested
             </p>
           </div>
-          <img src={vector} alt="" />
+          <img src={vector} alt="message" className="lg:mt-0 mt-10" />
         </div>
       </div>
 

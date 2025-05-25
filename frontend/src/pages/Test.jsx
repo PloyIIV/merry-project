@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 
 const Test = () => {
     const fetchData = async () => {
-        const response = await axios.get('http://localhost:4000/user/log')
+        const response = await axios.get('http://localhost:3000/user/log')
         console.log(response);
     }
     useEffect(()=>{

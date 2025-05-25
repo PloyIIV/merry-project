@@ -283,6 +283,7 @@ export const merryButton = (
 
 const Matching = () => {
   const url = "https://merry-project.vercel.app";
+  // const url = "http://localhost:3000"
   const [count, setCount] = useState(0);
   const [users, setUser] = useState({});
   const [loading, setLoading] = useState(null);
@@ -303,7 +304,7 @@ const Matching = () => {
   return (
     <div className="flex calHeight">
       {clicked ? (
-        <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-20">
+        <div className="fixed left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2 z-20">
           <PopupPreview
             setClicked={setClicked}
             clicked={clicked}

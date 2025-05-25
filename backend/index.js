@@ -4,10 +4,11 @@ import cors from "cors";
 import adminRouter from "./routes/admin.js";
 import userRouter from "./routes/user.js";
 import { protect } from "./middlewares/protect.js";
+import postRouter from "./routes/post.js";
 
 async function init() {
   const app = express();
-  const port = 4000;
+  const port = 3000;
 
   const corsConfig = {
     origin: "*",
@@ -21,8 +22,9 @@ async function init() {
   // app.use(express.urlencoded({ extended: true }));
 
   // Endpoint
-  app.use('/admin', protect, adminRouter);
+  app.use('/admin', adminRouter);
   app.use('/user', userRouter);
+  app.use('/post', protect, postRouter)
 
   app.get("/", (req, res) => {
     res.send("API is working");

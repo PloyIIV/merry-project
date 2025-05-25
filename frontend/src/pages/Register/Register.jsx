@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 const Register = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
-  const [errorText, setErrorText] = useState("")
-  const { data } = useRegister();
+  const [errorText, setErrorText] = useState("");
+  const { data, avatars, tags } = useRegister();
 
   const handlePrev = () => {
     if (step > 1) {
@@ -16,55 +16,80 @@ const Register = () => {
     }
   };
   const handleNext = () => {
-    console.log(data)
+    console.log(data);
     let isValid = true;
     if (data.name.trim() == "") {
-      setErrorText("● Please enter your name")
-      isValid = false
+      setErrorText("● Please enter your name");
+      isValid = false;
     }
     if (data.dateOfBirth == "") {
-      setErrorText("● Please enter your date of birth")
+      setErrorText("● Please enter your date of birth");
       isValid = false;
     }
     if (data.location.trim() == "") {
-      setErrorText("● Please enter your location")
-      isValid = false
+      setErrorText("● Please enter your location");
+      isValid = false;
     }
     if (data.city.trim() == "") {
-      setErrorText("● Please enter your city")
-      isValid = false
+      setErrorText("● Please enter your city");
+      isValid = false;
     }
     if (data.username.trim() == "") {
-      setErrorText("● Please enter your username")
-      isValid = false
+      setErrorText("● Please enter your username");
+      isValid = false;
     }
     if (data.email.trim() == "") {
-      setErrorText("● Please enter your email")
-      isValid = false
+      setErrorText("● Please enter your email");
+      isValid = false;
     }
     if (data.password.length < 7) {
-      setErrorText("● Password must be at least 8 characters")
-      isValid = false
+      setErrorText("● Password must be at least 8 characters");
+      isValid = false;
     }
     if (data.password !== data.confirmPassword) {
-      setErrorText("● Password is not matched!")
-      isValid = false
+      setErrorText("● Password is not matched!");
+      isValid = false;
     }
     if (isValid && step < 3) {
       console.log(errorText);
-      setErrorText("")
+      setErrorText("");
       setStep((step) => step + 1);
     }
   };
 
-    // const url = 'http://localhost:5173'
-    const url = 'https://merry-project.vercel.app'
+  // const url = "http://localhost:3000";
+  const url = 'https://merry-project.vercel.app'
   const handleSubmit = async (event) => {
-    event.preventDefault()
-    const result = await axios.post(`${url}/user/register`, data)
-    console.log(result)
-    navigate("/login")
-  }
+    event.preventDefault();
+    const formData = new FormData();
+    if (Object.keys(avatars).length < 1) {
+      console.log("Please upload your photos");
+    }
+    formData.append("name", data.name);
+    formData.append("date_of_birth", data.date_of_birth);
+    formData.append("location", data.location);
+    formData.append("city", data.city);
+    formData.append("username", data.username);
+    formData.append("email", data.email);
+    formData.append("password", data.password);
+    formData.append("sexual_identities", data.sexual_identities);
+    formData.append("sexual_preferences", data.sexual_preferences);
+    formData.append("racial_preferences", data.racial_preferences);
+    formData.append("meeting_interests", data.meeting_interests);
+    formData.append("tags", tags);
+    for (let key in avatars) {
+      formData.append("avatar", avatars[key]);
+    }
+    console.log(formData);
+    // const result = await axios.post(`${url}/user/register`, data)
+    const result = await axios.post(`${url}/user/register`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    console.log(result);
+  };
 
   const renderStep = () => {
     switch (step) {
@@ -165,10 +190,8 @@ const Register = () => {
           </div>
         </div>
         <div className="mt-14">
-          {renderStep()} 
-          <div className="text-red-600 font-extrabold">
-          {errorText}
-          </div>
+          {renderStep()}
+          <div className="text-red-600 font-extrabold">{errorText}</div>
         </div>
       </div>
       <div className="absolute justify-between px-36 flex items-center bottom-0 h-24 w-full border-t-2">
