@@ -10,7 +10,7 @@ const ComplaintList = () => {
   const [inputValue, setInputValue] = useState("");
   const [status, setStatus] = useState("all");
   // const url = "http://localhost:3000/post";
-  const url = 'https://merry-project.vercel.app/post'
+  const url = "https://merry-project.vercel.app/post";
 
   function addZero(i) {
     if (i < 10) {
@@ -88,7 +88,7 @@ const ComplaintList = () => {
           <table className="bg-white w-full rounded-3xl shadow-lg">
             <thead>
               <tr className="h-14 border-b text-pgray-700">
-                <th className="w-1/12">User</th>
+                <th className="w-1/12 hidden md:table-cell">User</th>
                 <th className="w-1/6">Issue</th>
                 <th className="w-2/6">Description</th>
                 <th className="w-1/6">Date Submitted</th>
@@ -104,8 +104,10 @@ const ComplaintList = () => {
                       onClick={() => handleClick(item)}
                       className="text-center h-16 hover:bg-pgray-100 cursor-pointer text-sm"
                     >
-                      <td className="w-1/12">{item.user_id}</td>
-                      <td className="w-1/6 text-start">{item.title}</td>
+                      <td className="w-1/12 hidden md:table-cell">
+                        {item.user_id}
+                      </td>
+                      <td className="w-1/6 md:text-start">{item.title}</td>
                       <td className="w-2/6 text-start">{item.description}</td>
                       <td className="w-1/6">{formatDate(item.created_at)}</td>
                       <td className="w-1/6">
