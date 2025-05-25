@@ -33,13 +33,12 @@ const ChatSidebar = () => {
     const response = await axios.get(`${url}/user/log`);
     setUsers(response.data.data);
     setIsLoading(false);
-    console.log(response);
   };
   useEffect(() => {
     fetchUsers();
   }, []);
   return (
-    <div className="overflow-y-auto h-full">
+    <div className="">
       <div className="hidden lg:flex flex-col items-center text-center border border-pred-600 rounded-lg mx-3 my-5 px-2 py-5 bg-pgray-200">
         {svgSearchLogo}
         <h6 className="font-extrabold text-pred-600 text-lg">
@@ -54,13 +53,13 @@ const ChatSidebar = () => {
         <h6 className="font-bold text-xl">Merry Match!</h6>
         <div>
           {!isLoading ? (
-            <div className="w-full flex overflow-x-auto">
+            <div className="h-24 flex gap-2 overflow-x-auto items-center">
               {users.map((user, index) => {
                 if (user.image) {
                   return (
                       <img
                         key={index}
-                        className="w-20 h-20 object-cover rounded-3xl mr-3 cursor-pointer "
+                        className="w-[80px] h-[80px] object-cover rounded-3xl cursor-pointer hover:ring-2 hover:ring-ppurple-200"
                         src={user.image[0]}
                         alt={user.username}
                         onClick={() => console.log(user)}
@@ -79,9 +78,9 @@ const ChatSidebar = () => {
       <div className="m-3">
         <h6 className="font-bold text-xl">Chat with Merry Match</h6>
         {!isLoading ? (
-          <div className="ml-2">
+          <div className="ml-2 h-[400px] lg:h-[500px] overflow-y-scroll">
             {users.map((user, index) => {
-              if (user.image) { // && index < 3
+              if (user.image) { 
                 return (
                   <div key={index} className="flex items-center mt-3 hover:bg-pgray-100 border border-transparent hover:border-ppurple-700/50 hover:rounded-xl px-2 py-3">
                     <img

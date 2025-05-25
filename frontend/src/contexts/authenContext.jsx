@@ -15,8 +15,8 @@ const getState = () => {
 }
 
 function AuthProvider(props) {
-    const url = "https://merry-project.vercel.app"
-    // const url = "http://localhost:4000"
+    // const url = "https://merry-project.vercel.app"
+    const url = "http://localhost:3000"
     const [loading, setLoading] = useState(false)
     const [state, setState] = useState(getState())
     const navigate = useNavigate();
@@ -31,6 +31,7 @@ function AuthProvider(props) {
             localStorage.setItem("token", token)
             setState(getState())
             setLoading(false)
+            navigate('/')
         } else {
             setLoading(false)
             return response.data

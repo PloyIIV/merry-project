@@ -18,8 +18,9 @@ function RegisterProvider(props) {
         meetingInterests: ""
     })
     const [tags, setTags] = useState([])
+    const [avatars, setAvatars] = useState({})
     return (
-        <RegisterContext.Provider value={{ data, setData, tags, setTags }}>{props.children}</RegisterContext.Provider>
+        <RegisterContext.Provider value={{ data, setData, tags, setTags, avatars, setAvatars }}>{props.children}</RegisterContext.Provider>
     )
 }
 

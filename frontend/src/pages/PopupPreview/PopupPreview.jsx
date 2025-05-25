@@ -52,27 +52,29 @@ const PopupPreview = ({ clicked, setClicked, userId }) => {
     fetchUser();
   }, []);
   return (
-    <div className="border bg-white/95 rounded-3xl w-[1000px] h-[600px] flex p-10 shadow-xl shadow-gray-900">
+    <div className="border bg-white/85 backdrop-blur-md rounded-3xl w-[1000px] h-[600px] flex p-10 shadow-xl shadow-gray-600">
       {!isLoading ? (
         <>
-          <div className="w-[400px] h-[400px]">
+          <div className="w-[400px] h-[442px] rounded-3xl shadow-xl">
             {user.image ? (
-              <img
-                src={user.image[count]}
-                className="w-full h-full object-cover rounded-3xl"
-                alt="user profile"
-              />
+              <div className="w-[400px] h-[400px]">
+                <img
+                  src={user.image[count]}
+                  className="w-full h-full object-cover rounded-3xl"
+                  alt="user profile"
+                />
+              </div>
             ) : (
-                <div className="w-full h-full flex justify-center items-center">
-                    <div className="spinner"></div>
-                </div>
+              <div className="w-full h-full flex justify-center items-center">
+                <div className="spinner"></div>
+              </div>
             )}
             <div className="flex -mt-10 justify-center">
               <div>{closeButton}</div>
               <div>{merryButton}</div>
             </div>
             {user.image ? (
-              <div className="flex justify-between mx-2">
+              <div className="flex justify-between mx-5 -mt-5">
                 <div className="font-bold text-pgray-700">
                   {count + 1} / {user.image.length}
                 </div>
@@ -87,7 +89,10 @@ const PopupPreview = ({ clicked, setClicked, userId }) => {
               <div className="spinner"></div>
             )}
           </div>
-          <div onClick={() => setClicked(!clicked)} className="bg-yellow-400/0 w-[500px] ml-10">
+          <div
+            onClick={() => setClicked(!clicked)}
+            className="bg-yellow-400/0 w-[500px] ml-10"
+          >
             <div className="">
               <div className="flex">
                 <h1 className="font-extrabold text-3xl mr-5 first-letter:uppercase">
@@ -99,7 +104,7 @@ const PopupPreview = ({ clicked, setClicked, userId }) => {
               </div>
               <div className="flex">
                 {locationSvg}
-                <p className="text-pgray-700 ml-2">Bangkok, Thailand</p>
+                <p className="text-pgray-700 ml-2">{user.city}, {user.location}</p>
               </div>
             </div>
             <div className="flex my-8">
@@ -109,18 +114,18 @@ const PopupPreview = ({ clicked, setClicked, userId }) => {
                 <p className="mb-5">Racial Preference</p>
                 <p className="">Meeting Interests</p>
               </div>
-              <div className="ml-7 font-semibold text-pgray-700">
-                <p className="mb-5">Female</p>
-                <p className="mb-5">Male</p>
-                <p className="mb-5">Indefinite</p>
-                <p className="">Long-term commitment</p>
+              <div className="ml-7 font-semibold text-pgray-700 capitalize">
+                <p className="mb-5">{user.sexual_identities}</p>
+                <p className="mb-5">{user.sexual_preferences}</p>
+                <p className="mb-5">{user.racial_preferences}</p>
+                <p className="">{user.meeting_interests}</p>
               </div>
             </div>
             <div className="mb-8">
               <h3 className="font-bold text-2xl text-pgray-800 mb-2">
                 About me
               </h3>
-              <p>I know nothing</p>
+              <p>{user.about_me}</p>
             </div>
             <div>
               <h3 className="font-bold text-2xl text-pgray-800 mb-2">
@@ -147,7 +152,7 @@ const PopupPreview = ({ clicked, setClicked, userId }) => {
         </>
       ) : (
         <div className="w-full flex justify-center items-center">
-            <div className="spinner"></div>
+          <div className="spinner"></div>
         </div>
       )}
       <div className="absolute right-10">
