@@ -39,7 +39,8 @@ function Profile() {
   const removeTag = (index) => {
     const updatedTags = [...tags];
     delete updatedTags[index];
-    setTags(updatedTags);
+    const newTags = updatedTags.filter((tag) => tag)
+    setTags(newTags);
   };
 
   const addTag = (event) => {
@@ -47,10 +48,9 @@ function Profile() {
       event.preventDefault();
       const newTag = inputValue.trim();
       if (newTag && !tags.includes(newTag) && tags.length < 10) {
-        // Check if the new tag is not already in the list and the limit is not exceeded
         const updatedTags = [...tags, newTag];
         setTags(updatedTags);
-        setInputValue(""); // Clear the input field
+        setInputValue("");
       }
     }
   };
