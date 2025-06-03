@@ -3,7 +3,7 @@ import { StepOne, StepTwo, StepThree } from "./RegisterForm";
 import { useRegister } from "../../contexts/registerContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify'
+import { toast } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -59,12 +59,12 @@ const Register = () => {
   };
 
   // const url = "http://localhost:3000";
-  const url = 'https://merry-project.vercel.app'
+  const url = "https://merry-project.vercel.app";
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
     if (Object.keys(avatars).length < 1) {
-      return setErrorText("● Please upload your photos")
+      return setErrorText("● Please upload your photos");
     }
     formData.append("name", data.name);
     formData.append("date_of_birth", data.date_of_birth);
@@ -89,7 +89,7 @@ const Register = () => {
     });
 
     toast(result?.data?.message, {
-      position: "bottom-center"
+      position: "bottom-center",
     });
   };
 
@@ -120,7 +120,11 @@ const Register = () => {
           <div className="flex">
             <button
               className="border flex px-3 py-2 rounded-2xl items-center hover:bg-ppurple-100"
-              onClick={() => setStep(1)}
+              onClick={() => {
+                if (!errorText) {
+                  setStep(1);
+                }
+              }}
             >
               <div
                 className={`w-14 h-14 text-2xl font-extrabold rounded-3xl grid place-items-center bg-pgray-300 ${
@@ -144,7 +148,11 @@ const Register = () => {
             </button>
             <button
               className="border flex px-3 py-2 rounded-2xl items-center ml-3 hover:bg-ppurple-100"
-              onClick={() => setStep(2)}
+              onClick={() => {
+                if (!errorText) {
+                  setStep(2);
+                }
+              }}
             >
               <div
                 className={`w-14 h-14 text-2xl font-extrabold rounded-3xl grid place-items-center bg-pgray-300 ${
@@ -169,7 +177,11 @@ const Register = () => {
 
             <button
               className="border flex px-3 py-2 rounded-2xl items-center ml-3 hover:bg-ppurple-100"
-              onClick={() => setStep(3)}
+              onClick={() => {
+                if (!errorText) {
+                  setStep(3);
+                }
+              }}
             >
               <div
                 className={`w-14 h-14 text-2xl font-extrabold rounded-3xl grid place-items-center bg-pgray-300 ${
