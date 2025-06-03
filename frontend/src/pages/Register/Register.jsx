@@ -202,7 +202,7 @@ const Register = () => {
           <button
             onClick={handlePrev}
             className={`text-pred-500 font-bold ${
-              step <= 1 ? "text-pgray-500" : ""
+              step > 1 ? "text-pgray-500" : "hidden"
             }`}
           >
             Prev
