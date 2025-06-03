@@ -204,7 +204,7 @@ userRouter.post("/register", avatarUpload, async (req, res) => {
   let fileUrl = [];
   try {
     const age =
-      new Date().getFullYear() - new Date(req.body.dateOfBirth).getFullYear();
+      new Date().getFullYear() - new Date(req.body.date_of_birth).getFullYear();
     if (age < 18) {
       return res.json({
         message: "You must be at least 18 years old to register",
@@ -255,7 +255,7 @@ userRouter.post("/register", avatarUpload, async (req, res) => {
           username: username.toLowerCase(),
           image: fileUrl,
           hobbies: tagsArr,
-          date_of_birth: req.body.dateOfBirth,
+          date_of_birth: req.body.date_of_birth,
           location: req.body.location,
           city: req.body.city,
           age,
