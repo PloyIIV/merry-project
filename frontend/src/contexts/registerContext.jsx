@@ -5,7 +5,7 @@ const RegisterContext = createContext();
 function RegisterProvider(props) {
     const [data, setData] = useState({
         name: "",
-        dateOfBirth: "",
+        date_of_birth: "",
         location: "",
         city: "",
         username: "",
