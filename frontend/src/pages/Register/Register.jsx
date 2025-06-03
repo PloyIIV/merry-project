@@ -3,6 +3,7 @@ import { StepOne, StepTwo, StepThree } from "./RegisterForm";
 import { useRegister } from "../../contexts/registerContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify'
 
 const Register = () => {
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ const Register = () => {
     event.preventDefault();
     const formData = new FormData();
     if (Object.keys(avatars).length < 1) {
-      console.log("Please upload your photos");
+      return setErrorText("● Please upload your photos")
     }
     formData.append("name", data.name);
     formData.append("date_of_birth", data.date_of_birth);
@@ -80,7 +81,6 @@ const Register = () => {
     for (let key in avatars) {
       formData.append("avatar", avatars[key]);
     }
-    console.log(formData);
     // const result = await axios.post(`${url}/user/register`, data)
     const result = await axios.post(`${url}/user/register`, formData, {
       headers: {
@@ -88,7 +88,9 @@ const Register = () => {
       },
     });
 
-    console.log(result);
+    toast(result?.data?.message, {
+      position: "bottom-center"
+    });
   };
 
   const renderStep = () => {
