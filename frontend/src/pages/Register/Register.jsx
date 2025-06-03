@@ -22,7 +22,7 @@ const Register = () => {
       setErrorText("● Please enter your name");
       isValid = false;
     }
-    if (data.dateOfBirth == "") {
+    if (data.date_of_birth == "") {
       setErrorText("● Please enter your date of birth");
       isValid = false;
     }
